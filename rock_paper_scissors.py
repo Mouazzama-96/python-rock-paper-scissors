@@ -29,7 +29,18 @@ def play_game():
         print(f"\n--- Round {round_num} ---")
         player_choice = input("Choose rock, paper, or scissors: ").lower().strip()
         
-        while player_choice not in ["rock", "paper", "scissors"]:
+        player_choice = input("Choose rock, paper, or scissors (or 'quit' to exit): ").lower().strip()
+        
+        if player_choice == "quit":
+            print("Thanks for playing! Exiting game.")
+            return
+        
+        while player_choice not in ["rock", "paper", "scissors", "quit"]:
+            print("Invalid choice. Please try again.")
+            player_choice = input("Choose rock, paper, or scissors (or 'quit' to exit): ").lower().strip()
+            if player_choice == "quit":
+                print("Thanks for playing! Exiting game.")
+                return
             print("Invalid choice. Please try again.")
             player_choice = input("Choose rock, paper, or scissors: ").lower().strip()
         
